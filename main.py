@@ -8,6 +8,7 @@ import bs4 as bs
 import urllib.request
 import pickle
 import requests
+import os
 from datetime import date, datetime
 
 # load the nlp model and tfidf vectorizer from disk
@@ -152,5 +153,6 @@ def recommend():
             vote_count=vote_count,release_date=release_date,movie_rel_date="",curr_date="",runtime=runtime,status=status,genres=genres,movie_cards=movie_cards,reviews="",casts=casts,cast_details=cast_details)
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
